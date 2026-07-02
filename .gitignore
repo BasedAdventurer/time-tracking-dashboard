@@ -2,6 +2,7 @@
 *.sketch
 *.fig
 *.xd
+*.txt
 
 # Dependencies
 /node_modules

@@ -1,0 +1,315 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url("fonts/Rubik-VariableFont_wght.woff2") format("woff2-variations"),
+         url("fonts/Rubik-VariableFont_wght.woff") format("woff-variations");
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+:root {
+    --clr-primary-purple-600: hsl(246, 80%, 60%);
+    --clr-primary-orange-300: hsl(15, 100%, 70%);
+    --clr-primary-blue-300: hsl(195, 74%, 62%);
+    --clr-primary-pink-400: hsl(348, 100%, 68%);
+    --clr-primary-green-400: hsl(145, 58%, 55%);
+    --clr-primary-purple-700: hsl(264, 64%, 52%);
+    --clr-primary-yellow-300: hsl(43, 84%, 65%);
+
+    --clr-neutral-navy-950: hsl(226, 43%, 10%);
+    --clr-neutral-navy-900: hsl(235, 46%, 20%);
+    --clr-neutral-purple-500: hsl(235, 45%, 61%);
+    --clr-neutral-navy-200: hsl(236, 100%, 87%);
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+main {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--clr-neutral-navy-950);
+    display: flex;
+}
+
+span {
+    line-height: 1.3;
+}
+
+.time-tracking-dashboard__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    max-width: 60rem;
+    gap: 15px;
+    margin: auto;
+
+    @media(min-width: 48em) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media(min-width: 64em) {
+        grid-template-columns: repeat(4, 1fr);
+        width: clamp(40rem, 80vw, 90rem);
+        max-width: none;
+    }
+}
+
+.time-tracking-dashboard__toggle {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-neutral-navy-900);
+    border-radius: 15px;
+
+    @media(min-width: 48em) {
+        grid-column: 1 / 3;
+    }
+
+    @media(min-width: 64em) {
+        height: 100%;
+        grid-column: 1 / 1;
+        grid-row: 1 / 3;
+    }
+}
+
+.dashboard__profile {
+    background-color: var(--clr-primary-purple-600);
+    border-radius: 15px;
+    padding: 2rem;
+
+    @media(min-width: 64em) {
+        padding-bottom: 5rem;
+    }
+}
+
+.dashboard__profile-content {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: center;
+
+    @media(min-width: 64em) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 35px;
+    }
+}
+
+.dashboard__profile-content img {
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+
+    @media(min-width: 64em) {
+        width: 70px;
+    }
+
+}
+
+.span__report-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.span__profile-name {
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    @media(min-width: 64em) {
+        font-size: 3.2rem;
+    }
+}
+
+.dashboard__time-toggle {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5rem;
+
+    @media(min-width: 64em) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+}
+
+.dashboard__toggle-btn {
+    font-family: inherit;
+    padding: 0.3rem;
+    background-color: transparent;
+    border: none;
+    color: var(--clr-neutral-purple-500);
+}
+
+.dashboard__toggle-btn.active {
+    color: white;
+}
+
+.time-tracking-dashboard__card {
+    position: relative;
+    height: 125px;
+
+    @media(min-width: 64em) {
+        height: 178px;
+    }
+}
+
+.time-tracking-dashboard__card .card__color-highlight {
+    display: flex;
+    justify-content: flex-end;
+    padding-inline: 8px;
+    border-radius: 15px;
+    position: relative;
+    height: 70px;
+    overflow: hidden;
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-neutral-navy-900);
+    position: absolute;
+    width: 100%;
+    top: 25%;
+    bottom: 0;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 15px;
+    gap: 8px;
+
+    @media(min-width: 64em) {
+        gap: 10px;
+    }
+}
+
+.card__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-category {
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    @media(min-width: 64em) {
+        font-size: 1.3rem;
+    }
+}
+
+.time-current {
+    font-size: 2rem;
+    font-weight: 300;
+
+    @media(min-width: 64em) {
+        font-size: 4rem;
+    }
+}
+
+.card__time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+
+    @media(min-width: 64em) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+}
+
+.card__menu img {
+    margin-top: 5px;
+
+    @media(min-width: 64em) {
+        margin-top: 0;
+    }
+}
+
+.card__time p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--clr-neutral-navy-200);
+
+    @media(min-width: 64em) {
+        font-size: 1.1rem;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: -10px;
+}
+
+/* ------------------------------ */
+/*           WORK CARD            */
+/* ------------------------------ */
+
+.time-tracking-dashboard__card--work .card__color-highlight {
+    background-color: var(--clr-primary-orange-300);
+}
+
+/* ------------------------------ */
+/*           PLAY CARD            */
+/* ------------------------------ */
+
+.time-tracking-dashboard__card--play .card__color-highlight {
+    background-color: var(--clr-primary-blue-300);
+}
+
+/* ------------------------------ */
+/*          STUDY CARD            */
+/* ------------------------------ */
+
+.time-tracking-dashboard__card--study .card__color-highlight {
+    background-color: var(--clr-primary-pink-400);
+}
+
+/* ------------------------------ */
+/*        EXERCISE CARD           */
+/* ------------------------------ */
+
+.time-tracking-dashboard__card--exercise .card__color-highlight {
+    background-color: var(--clr-primary-green-400);
+}
+
+/* ------------------------------ */
+/*         SOCIAL CARD            */
+/* ------------------------------ */
+
+.time-tracking-dashboard__card--social .card__color-highlight {
+    background-color: var(--clr-primary-purple-700);
+}
+
+/* ------------------------------ */
+/*        SELF CARE CARD          */
+/* ------------------------------ */
+
+.time-tracking-dashboard__card--self-care .card__color-highlight {
+    background-color: var(--clr-primary-yellow-300);
+}
+
+
+
+
+

@@ -8,73 +8,138 @@
   
   <title>Frontend Mentor | Time tracking dashboard</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+
 </head>
 <body>
+  <main>
+    <article class="time-tracking-dashboard__container">
+      <div class="time-tracking-dashboard__toggle">
+        <div class="dashboard__profile">
+          <div class="dashboard__profile-content">
+            <img src="images/image-jeremy.png" alt="Jeremy Robson Profile Picture">
+            <div class="dashboard__profile-name">
+              <span class="span__report-text">Report for</span><br>
+              <span class="span__profile-name">Jeremy Robson</span>
+            </div>
+          </div>
+        </div>
 
-  Report for
-  Jeremy Robson
+        <div class="dashboard__time-toggle">
+          <button class="dashboard__toggle-btn">Daily</button>
+          <button class="dashboard__toggle-btn active">Weekly</button>
+          <button class="dashboard__toggle-btn">Monthly</button>
+        </div>
+      </div>
+      
+      <!-- 1. WORK CARD CATEGORY -->
+      <div class="time-tracking-dashboard__card time-tracking-dashboard__card--work">
+        <div class="card__color-highlight">
+          <img src="images/icon-work.svg" alt="work icon" class="icon">
+        </div>
 
-  Daily
-  Weekly
-  Monthly
+        <div class="card__content">
+          <div class="card__menu">
+            <span class="card-category">Work</span>
+            <img src="images/icon-ellipsis.svg" alt="ellipsis">
+          </div>
+          <div class="card__time">
+            <span class="time-current">32hrs</span>
+            <p>Last Week - <span class="time-previous">36hrs</span></p>
+          </div>
+        </div>
+      </div>
 
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
+      <!-- 2. PLAY CARD CATEGORY -->
+      <div class="time-tracking-dashboard__card time-tracking-dashboard__card--play">
+        <div class="card__color-highlight">
+          <img src="images/icon-play.svg" alt="play icon" class="icon">
+        </div>
 
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
+        <div class="card__content">
+          <div class="card__menu">
+            <span class="card-category">Play</span>
+            <img src="images/icon-ellipsis.svg" alt="ellipsis">
+          </div>
+          <div class="card__time">
+            <span class="time-current">10hrs</span>
+            <p>Last Week - <span class="time-previous">8hrs</span></p>
+          </div>
+        </div>
+      </div>
 
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
+      <!-- 3. STUDY CARD CATEGORY -->
+      <div class="time-tracking-dashboard__card time-tracking-dashboard__card--study">
+        <div class="card__color-highlight">
+          <img src="images/icon-study.svg" alt="study icon" class="icon">
+        </div>
 
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
+        <div class="card__content">
+          <div class="card__menu">
+            <span class="card-category">Study</span>
+            <img src="images/icon-ellipsis.svg" alt="ellipsis">
+          </div>
+          <div class="card__time">
+            <span class="time-current">4hrs</span>
+            <p>Last Week - <span class="time-previous">7hrs</span></p>
+          </div>
+        </div>
+      </div>
 
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
+      <!-- 4. EXERCISE CARD CATEGORY -->
+      <div class="time-tracking-dashboard__card time-tracking-dashboard__card--exercise">
+        <div class="card__color-highlight">
+          <img src="images/icon-exercise.svg" alt="exercise icon" class="icon">
+        </div>
 
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
+        <div class="card__content">
+          <div class="card__menu">
+            <span class="card-category">Exercise</span>
+            <img src="images/icon-ellipsis.svg" alt="ellipsis">
+          </div>
+          <div class="card__time">
+            <span class="time-current">4hrs</span>
+            <p>Last Week - <span class="time-previous">5hrs</span></p>
+          </div>
+        </div>
+      </div>
 
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+      <!-- 5. SOCIAL CARD CATEGORY -->
+      <div class="time-tracking-dashboard__card time-tracking-dashboard__card--social">
+        <div class="card__color-highlight">
+          <img src="images/icon-social.svg" alt="social icon" class="icon">
+        </div>
+
+        <div class="card__content">
+          <div class="card__menu">
+            <span class="card-category">Social</span>
+            <img src="images/icon-ellipsis.svg" alt="ellipsis">
+          </div>
+          <div class="card__time">
+            <span class="time-current">5hrs</span>
+            <p>Last Week - <span class="time-previous">10hrs</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. SELF CARE CARD CATEGORY -->
+      <div class="time-tracking-dashboard__card time-tracking-dashboard__card--self-care">
+        <div class="card__color-highlight">
+          <img src="images/icon-self-care.svg" alt="self care icon" class="icon">
+        </div>
+
+        <div class="card__content">
+          <div class="card__menu">
+            <span class="card-category">Self Care</span>
+            <img src="images/icon-ellipsis.svg" alt="ellipsis">
+          </div>
+          <div class="card__time">
+            <span class="time-current">2hrs</span>
+            <p>Last Week - <span class="time-previous">2hrs</span></p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
 </html>
