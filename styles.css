@@ -32,6 +32,7 @@
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -157,6 +158,11 @@ span {
     background-color: transparent;
     border: none;
     color: var(--clr-neutral-purple-500);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--clr-neutral-navy-200);
+    }
 }
 
 .dashboard__toggle-btn.active {
