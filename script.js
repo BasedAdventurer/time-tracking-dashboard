@@ -18,20 +18,23 @@ function updateCards(timeframe) {
     // Ambil semua elemen kartu dari html
     const cards = document.querySelectorAll(".time-tracking-dashboard__card");
 
+    // Membuat "dictionary" object diluar loop untuk timeframe
+    const timeframeLabels = {
+        daily: "Yesterday",
+        weekly: "Last Week",
+        monthly: "Last Month"
+    };
+
     // Looping setiap kartu
     cards.forEach((card) => {
         // Baca judul kartu (Work, Play, Study, dll)
         const title = card.querySelector(".card-category").innerText;
-
         // Cari data json yang judulnya cocok dengan judul kartu di html
         const data = timeTrackingData.find((item) => item.title === title);
 
         if (data) {
             // Teks untuk waktu sebelumnya
-            let previousTimeText = "";
-            if(timeframe === "daily") previousTimeText = "Yesterday";
-            if(timeframe === "weekly") previousTimeText = "Last Week";
-            if(timeframe === "monthly") previousTimeText = "Last Month";
+            const previousTimeText = timeframeLabels[timeframe];
 
             // Ekstrak angka dari data json sesuai timeframe (daily/weekly/monthly)
             const currentHrs = data.timeframes[timeframe].current;
@@ -47,18 +50,24 @@ function updateCards(timeframe) {
 // 3. Aksi ketika tombol diklik
 const toggleBtns = document.querySelectorAll(".dashboard__toggle-btn");
 
+// Definisikan function logic sekali diluar loop
+function handleToggleClick(e) {
+    // Hapus status 'active' di tombol lama
+    document.querySelector(".dashboard__toggle-btn.active")?.classList.remove("active");
+
+    // Tambahkan status 'active' ke tombol yang baru saja diklik
+    e.currentTarget.classList.add("active");
+
+    // Baca teks tombol yang diklik lalu ubah jadi huruf kecil semua
+    const clickedTimeframe = e.currentTarget.innerText.toLowerCase();
+
+    // Perintahkan kartu untuk update
+    updateCards(clickedTimeframe);
+}
+
+// 4. Jalankan function ke setiap btn
 toggleBtns.forEach(btn => {
-    btn.addEventListener("click", function() {
-        // Hapus status 'active' di tombol lama, pindahkan ke tombol baru
-        document.querySelector(".dashboard__toggle-btn.active")?.classList.remove("active");
-        this.classList.add("active");
-
-        // Baca teks tombol yang diklik (Daily/Weekly/Monthly) lalu ubah jadi huruf kecil semua
-        const clickedTimeframe = this.innerText.toLowerCase();
-
-        // Perintahkan kartu untuk update sesuai tombol yang ditekan
-        updateCards(clickedTimeframe);
-    });
+    btn.addEventListener("click", handleToggleClick);
 });
 
 // Jalankan pengambilan data pertama kali saat file dimuat
